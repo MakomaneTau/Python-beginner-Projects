@@ -1,0 +1,98 @@
+import random as rd
+import math
+import time
+
+OPERATORS = ['+', '-', '*', '/']
+MIN_NUM = 6
+MAX_NUM = 20
+
+def easy():
+    left = rd.randint(MIN_NUM, MAX_NUM)
+    right = rd.randint(MIN_NUM,MAX_NUM)
+    
+    operator = rd.choice(OPERATORS)
+    
+    #operator = OPERATORS[rd.randint(0,3)]
+    
+    expr = str(left) + " " +  operator + " " + str(right)
+            
+    answer = eval(str(left) + str(operator) + str(right))
+    
+    if (operator == '/'):
+        answer = math.floor(answer)
+    
+    return expr, str(answer)
+
+TRIG_SIGNS = ["sin", "cos", "tan", "cosec", "sec", "cot"]
+ANGLES = ["30","45","60","90","120", "135", "150", "180", "210", "225", "240", "270", "300", "315", "330", "360"]
+def medium():
+    ratio = rd.choice(TRIG_SIGNS)
+    angle = rd.choice(ANGLES)
+    match ratio:
+        case "sin":
+            expr = "math.sin" + "(" + angle + ")"
+            output = "sin(" + angle + ")"
+        case "cos":
+            expr = "math.cos" + "(" + angle + ")"
+            output = "cos(" + angle + ")"
+        case "tan":
+            expr = "math.tan" + "(" + angle + ")"
+            output = "tan(" + angle + ")"
+        case "cosec":
+            expr = "1/(" + "math.sin(" + angle +"))"
+            output = "cosec(" + angle + ")"
+        case "sec":
+            expr = "1/(" + "math.cos(" + angle +"))"
+            output = "sec(" + angle + ")"
+        case "cot":
+            expr = "1/(" + "math.tan(" + angle +"))"
+            output = "cot(" + angle + ")"
+          
+    return expr, output
+
+
+
+
+count = 0
+
+input("Press any button to start")
+print("-----------------------------")
+
+start_time = time.time()
+
+for i in range(10):
+    expr = easy()[1]
+    
+    expr_2, output = medium()
+    
+    choices = [expr, expr_2]
+    
+    final = rd.choice(choices)
+    
+    answer = eval(final)
+    
+    
+    cond = False
+    
+    while cond == False:
+        
+        if (final == expr_2):
+            enter = input(str(i+1) + ". " + output + " = ")
+            
+        else:
+            enter = input(str(i+1) + ". " + expr + " = ")
+        
+        
+        if (enter == answer):
+            cond = True
+            
+end_time = time.time()
+
+total_time = end_time - start_time
+
+print("-----------------------------")
+print("Your time in total ", round(total_time, 2) , "seconds")
+
+            
+
+

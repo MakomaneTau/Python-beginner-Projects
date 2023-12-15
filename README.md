@@ -1,7 +1,7 @@
 # This repository conatains personal c++ projects. With the purpose of mastering c++ programming language
 
 ## 1. Timed Math Problems
-<p><a href="https://youtu.be/21FnnGKSRZo?si=dAkOoIukpzad-YBd"></a><b>Acknowledgment: Tech With Tim</b> </p>
+<p><a href="https://youtu.be/21FnnGKSRZo?si=dAkOoIukpzad-YBd">Acknowledgment: Tech With Tim </a></p>
 
 <p>The script then prompts the user to solve either an arithmetic or trigonometric problem for a total of 10 rounds. </br>
 The user's input is compared to the correct answer, and the user continues until they provide the correct answer. </br>

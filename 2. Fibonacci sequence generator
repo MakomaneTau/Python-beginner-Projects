@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = int(input("Length of list: "))
+
+def numbers(x):
+    if x == 0:
+        return 1
+    if x == 1:
+        return 1
+    else:
+        return numbers(x-1) + numbers(x-2)
+    
+nums = []    
+x_axis = []
+for i in range(x):
+    x_axis.append(i)
+    nums.append(numbers(i))
+
+print(nums)
+    
+plt.plot(x_axis, nums, marker='o', color='b')
+plt.xlabel("X-axis")  # add X-axis label 
+plt.ylabel("Y-axis")  # add Y-axis label 
+plt.title("Fibonnacci Seqeunce/Graph")  # add title 
+
+plt.grid(color = 'green', linestyle = '--', linewidth = 0.5)
+
+plt.show()
